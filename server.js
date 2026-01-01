@@ -6,6 +6,8 @@ require("dotenv").config();
 // Import Route Files
 const apiRoutes = require("./routes/apiRoutes"); // For Quiz/AI
 const authRoutes = require("./routes/authRoutes"); // For Login/Signup/Profile
+const interviewRoutes = require("./routes/interviewRoutes");
+const scheduledInterviewRoutes = require("./routes/scheduledInterviewRoutes");
 
 const app = express();
 
@@ -22,6 +24,8 @@ mongoose
 // Register Routes
 app.use("/api", apiRoutes); // Base URL for AI features
 app.use("/api/auth", authRoutes); // Base URL for Auth (creates /api/auth/login)
+app.use("/api/interview", interviewRoutes);
+app.use("/api/scheduled-interview", scheduledInterviewRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
